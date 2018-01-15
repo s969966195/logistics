@@ -1,0 +1,26 @@
+[[source]]
+
+url = "http://mirrors.aliyun.com/pypi/simple/"
+verify_ssl = true
+name = "pypi"
+
+
+[dev-packages]
+
+
+
+[packages]
+
+flask-vue = "*"
+flask-script = "*"
+flask-mail = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
+flask-bootstrap = "*"
+flask-login = "*"
+flask-wtf = "*"
+
+
+[requires]
+
+python_version = "3.6"

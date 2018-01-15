@@ -1,0 +1,20 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}物流信息管理系统{% endblock %}
+
+{% block metas %}
+<meta charset="utf-8">
+{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<link href="{{ url_for('static', filename='manage/font-awesome.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='manage/basic.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='manage/custom.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='manage/jquery.metisMenu.js') }}"></script>
+<script src="{{ url_for('static', filename='manage/custom.js') }}"></script>
+{% endblock %}
