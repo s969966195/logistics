@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='order/cityPicker.css') }}">
+{% endblock %}
+
+{% block content %}
+{% include "nav.html" %}
+<div id="page-wrapper">
+    <div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                创建订单
+            </div>
+            <div class="panel-body">
+                <form role="form" method="POST">
+                    <div class="form-group">
+                        <label>出发地</label>
+                        <input name="source" class="form-control" type="text" id="source">
+                        <input type="hidden" id="province" value="">
+                        <input type="hidden" id="city" value="">
+                        <p class="help-block">请选择出发城市.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>目的地</label>
+                        <input name="destination" class="form-control" type="text" id="destination">
+                        <input type="hidden" id="province" value="">
+                        <input type="hidden" id="city" value="">
+                        <p class="help-block">请选择目的城市.</p>
+                    </div>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% include "foot.html"%}
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript" src="{{ url_for('static', filename='order/cityData.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='order/cityPicker.js') }}"></script>
+<script>
+    var sourcePicker = new IIInsomniaCityPicker({
+        data: cityData,
+        target: '#source',
+        valType: 'k-v',
+        hideCityInput: '#city',
+        hideProvinceInput: '#province',
+    });
+    sourcePicker.init();
+    var destinationPicker = new IIInsomniaCityPicker({
+        data: cityData,
+        target: '#destination',
+        valType: 'k-v',
+        hideCityInput: '#city',
+        hideProvinceInput: '#province',
+    });
+    destinationPicker.init();
+</script>
+{% endblock %}

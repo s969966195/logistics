@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block content %}
+{% include "nav.html" %}
+<div id="page-wrapper">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="list-group panel panel-info">
+                <div class="panel-heading">
+                    <ul class="nav nav-pills">
+                        <li {% if orderstatus == '' %}class="active"{% endif %}><a href="{{ url_for('.show_all') }}">全部</a></li>
+                        <li {% if orderstatus == 0 %}class="active"{% endif %}><a href="{{ url_for('.show_unanswered') }}">未接单</a></li>
+                        <li {% if orderstatus == 1 %}class="active"{% endif %}><a href="{{ url_for('.show_unfinished') }}">未完成</a></li>
+                        <li {% if orderstatus == 2 %}class="active"{% endif %}><a href="{{ url_for('.show_finished') }}">已完成</a></li>
+                    </ul>
+                </div>
+                {% include "order/_orders.html" %}
+                <div class="text-center">
+                    {% if pagination %}
+                    <div class="pagination">
+                        {{ macros.pagination_widget(pagination,'.index') }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+</div>
+{% include "foot.html"%}
+{% endblock %}

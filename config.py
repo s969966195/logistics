@@ -7,6 +7,7 @@ class Config(object):
     FLASKY_MAIL_SUBJECT_PREFIX = '[logistics]'
     FLASKY_MAIL_SENDER = 'logistics <m18251957692_1@163.com>'
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN') or '969966195@qq.com'
+    FLASKY_ORDERS_PER_PAGE = 20
     MAIL_SERVER = 'smtp.163.com'
     MAIL_PORT = 465
     MAIL_USE_TLS = False

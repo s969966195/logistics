@@ -41,9 +41,9 @@ class User(UserMixin, db.Model):
         super(User, self).__init__(**kwargs)
         if self.role is None:
             if self.email == current_app.config['FLASKY_ADMIN']:
-                self.role = Role.query.filter_by(id=2).first()
+                self.role = Role.query.filter_by(id=3).first()
             else:
-                self.role = Role.query.filter_by(id=0).first()
+                self.role = Role.query.filter_by(id=1).first()
 
     def __repr__(self):
         return "<User '{}'>".format(self.email)
@@ -86,6 +86,8 @@ class Order(db.Model):
     __tables__ = 'orders'
     id = db.Column(db.Integer, primary_key=True)
     status = db.Column(db.Integer, default=0)
+    createtime = db.Column(db.String(64))
+    createtimestamp = db.Column(db.Integer)
     starttime = db.Column(db.String(64))
     endtime = db.Column(db.String(64))
     source = db.Column(db.String(64))
@@ -98,5 +100,7 @@ class Order(db.Model):
 
     def __init__(self, **kwargs):
         super(Order, self).__init__(**kwargs)
-        if self.starttime is None:
-            self.starttime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+        if self.createtime is None:
+            self.createtime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+            self.createtimestamp = int(time.time())
+        self.status = 0

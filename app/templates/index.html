@@ -35,6 +35,7 @@
 <!--header-->
 <div class="header-section">
     <div class="container">
+        {% include "flash.html" %}
         <!--logo-->
         <div class="logo">
             <a href="{{ url_for('main.index') }}"><img src="{{ url_for('static', filename='index/logo.png') }}" alt=""></a>
@@ -63,9 +64,8 @@
         <div class="wecome-main">
             <div class=" col-md-6 wecome-text">
                 <h1>Welcome</h1>
-                <span>Pellentesque consequat aliquam hendrerit. Nam eget 
-                    tellus felis. Aenean aliquam pretium felis, eu varius 
-                    sapien. Mauris porttitor condimentum faucibus.</span>
+                <span>欢迎来到课程设计
+                </span>
                 <p>Nulla facilisi. Nunc convallis tortor non egestas auctor. Sed
                 quis bibendum ex. In hac habitasse platea dictumstNunc at
                 elit commodo, placerat massa in, feugiat ipsum. Cras sed

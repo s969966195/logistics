@@ -6,6 +6,7 @@ from flask import request, redirect, render_template, flash, url_for, jsonify
 from flask_login import login_user, logout_user, login_required, current_user
 from ..email import send_email
 
+
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     form = request.form
@@ -37,10 +38,11 @@ def login():
 
 
 @auth.route('/logout')
+@login_required
 def logout():
     logout_user()
     flash(u'您已经退出登录', 'warning')
-    return redirect(url_for('main.manage'))
+    return redirect(url_for('main.index'))
 
 
 @auth.route('/confirm/<token>')
@@ -52,4 +54,41 @@ def confirm(token):
         flash(u'您已经确认过您的账户, 谢谢!')
     else:
         flash(u'确认链接无效或已过期')
+    return redirect(url_for('main.manage'))
+
+
+@auth.route('/unconfirmed')
+def unconfirmed():
+    return render_template('auth/unconfirmed.html')
+
+
+@auth.route('/confirmed')
+@login_required
+def resend_confirmation():
+    token = current_user.generate_confirmation_token()
+    send_email(current_user.email, u'确认您的账户', 'auth/email/confirm', user=current_user, token=token)
+    flash(u'一封新的确认邮件已经发送到您的邮箱')
+    return redirect(url_for('main.manage'))
+
+
+@auth.route('/edituser/<int:id>', methods=['POST', 'GET'])
+@login_required
+def edituser(id):
+    user = User.query.filter_by(id=id).first()
+    if request.method == 'POST':
+        user.name = request.form.get('name')
+        user.phonenumber = request.form.get('phonenumber')
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('main.manage'))
+    return render_template('auth/edituser.html', user=user, sidebar=0)
+
+
+@auth.route('/bedriver')
+@login_required
+def bedriver():
+    user = User.query.filter_by(id=current_user.id).first()
+    user.role_id = 2
+    db.session.add(user)
+    db.session.commit()
     return redirect(url_for('main.manage'))

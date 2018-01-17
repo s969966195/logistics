@@ -1,0 +1,49 @@
+<ul class="list-group">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>状态</th>
+                <th>出发地</th>
+                <th>目的地</th>
+                <th>创建时间</th>
+                <th>开始时间</th>
+                <th>完成时间</th>
+                <th>用户</th>
+                <th>车主</th>
+                {% if current_user.role_id != 1 %}
+                <th>功能</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr> 
+                <td>{{ order.id }}</td>
+                {% if order.status == 0 %}
+                <td>未接单</td>
+                {% elif order.status == 1 %}
+                <td>未完成</td>
+                {% else %}
+                <td>已完成</td>
+                {% endif %}
+                <td>{{ order.source }}</td>
+                <td>{{ order.destination }}</td>
+                <td>{{ order.createtime }}</td>
+                <td>{{ order.starttime }}</td>
+                <td>{{ order.endtime }}</td>
+                <td>{{ User.query.filter_by(id=order.owner_id).first().email }}</td>
+                <td>{{ User.query.filter_by(id=order.driver_id).first().email }}</td>
+                <td>
+                {% if current_user.role_id == 2 and order.status == 0 %}
+                <a class="btn btn-xs btn-info" href="{{ url_for('main.answer', orderid=order.id) }}">接单</a>
+                {% endif %}
+                {% if current_user.role_id == 2 and order.status == 1 %}
+                <a class="btn btn-xs btn-info" href="{{ url_for('main.finish', orderid=order.id) }}">确认完成</a>
+                {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</ul>

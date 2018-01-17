@@ -11,9 +11,12 @@
         </div>
 
         <div class="header-right">
-            <a href="message-task.html" class="btn btn-info" title="New Message"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>
-            <a href="message-task.html" class="btn btn-primary" title="New Task"><b>40 </b><i class="fa fa-bars fa-2x"></i></a>
-            <a href="login.html" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+            {% if not current_user.confirmed and not current_user.is_anonymous %}
+            <a href="{{ url_for('auth.unconfirmed') }}" class="btn btn-primary" title="New Task"><b>确认账号</b></a>
+            {% endif %}
+            {% if current_user %}
+            <a href="{{ url_for('auth.logout') }}" class="btn btn-danger" title="Logout"><b>退出</b></a>
+            {% endif %}
         </div>
     </nav>
     <nav class="navbar-default navbar-side" role="navigation">
@@ -34,120 +37,37 @@
                             </small>
                             {% endif %}
                             <br />
-                            <a href="{{ url_for('main.index') }}" class="btn btn-xs btn-warning">编辑资料</a>
+                            {% if current_user.confirmed %}
+                                {% if current_user.role_id == 1 %}
+                                <a href="{{ url_for('auth.bedriver') }}" class="btn btn-xs btn-success">成为车主</a>
+                                {% endif %}
+                                <a href="{{ url_for('auth.edituser', id=current_user.id) }}" class="btn btn-xs btn-warning">编辑资料</a>
+                            {% endif %}
                         </div>
                     </div>
                 </li>
                 {% endif %}
                 <li>
-                    <a class="active-menu" href="index.html"><i class="fa fa-dashboard "></i>Dashboard</a>
+                    <a {% if sidebar == 1 %}class="active-menu" {% endif %}href="{{ url_for('main.manage') }}"><i class="fa fa-dashboard "></i>Dashboard</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-desktop "></i>UI Elements <span class="fa arrow"></span></a>
+                    {% if sidebar >= 2 %}
+                    <a href="#" class="active-menu-top"><i class="fa fa-desktop"></i>订单信息<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse in">
+                    {% else %}
+                    <a href="#"><i class="fa fa-desktop"></i>订单信息<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
+                    {% endif %}
                         <li>
-                            <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>Tabs & Panels</a>
+                            <a {% if sidebar == 2 %}class="active-menu" {% endif %}{% if not current_user.confirmed and not current_user.is_anonymous %}href="{{ url_for('auth.unconfirmed') }}"{% else %}href="{{ url_for('main.createorder') }}"{% endif %}><i class="fa fa-toggle-on"></i>创建订单</a>
                         </li>
                         <li>
-                            <a href="notification.html"><i class="fa fa-bell "></i>Notifications</a>
+                            <a {% if sidebar == 3 %}class="active-menu" {% endif %}{% if not current_user.confirmed and not current_user.is_anonymous %}href="{{ url_for('auth.unconfirmed') }}"{% else %}href="{{ url_for('main.searchorder') }}"{% endif %}><i class="fa fa-toggle-on"></i>查询订单</a>
                         </li>
                         <li>
-                            <a href="progress.html"><i class="fa fa-circle-o "></i>Progressbars</a>
-                        </li>
-                        <li>
-                            <a href="buttons.html"><i class="fa fa-code "></i>Buttons</a>
-                        </li>
-                        <li>
-                            <a href="icons.html"><i class="fa fa-bug "></i>Icons</a>
-                        </li>
-                        <li>
-                            <a href="wizard.html"><i class="fa fa-bug "></i>Wizard</a>
-                        </li>
-                        <li>
-                            <a href="typography.html"><i class="fa fa-edit "></i>Typography</a>
-                        </li>
-                        <li>
-                            <a href="grid.html"><i class="fa fa-eyedropper "></i>Grid</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-yelp "></i>Extra Pages <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="invoice.html"><i class="fa fa-coffee"></i>Invoice</a>
-                        </li>
-                        <li>
-                            <a href="pricing.html"><i class="fa fa-flash "></i>Pricing</a>
-                        </li>
-                        <li>
-                            <a href="component.html"><i class="fa fa-key "></i>Components</a>
-                        </li>
-                        <li>
-                            <a href="social.html"><i class="fa fa-send "></i>Social</a>
-                        </li>
-
-                        <li>
-                            <a href="message-task.html"><i class="fa fa-recycle "></i>Messages & Tasks</a>
+                            <a {% if sidebar == 4 %}class="active-menu" {% endif %}{% if not current_user.confirmed and not current_user.is_anonymous %}href="{{ url_for('auth.unconfirmed') }}"{% else %}href="{{ url_for('main.showorder') }}"{% endif %}><i class="fa fa-toggle-on"></i>订单列表</a>
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="table.html"><i class="fa fa-flash "></i>Data Tables </a>
-
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-bicycle "></i>Forms <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-
-                        <li>
-                            <a href="form.html"><i class="fa fa-desktop "></i>Basic </a>
-                        </li>
-                        <li>
-                            <a href="form-advance.html"><i class="fa fa-code "></i>Advance</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="gallery.html"><i class="fa fa-anchor "></i>Gallery</a>
-                </li>
-                <li>
-                    <a href="error.html"><i class="fa fa-bug "></i>Error Page</a>
-                </li>
-                <li>
-                    <a href="login.html"><i class="fa fa-sign-in "></i>Login Page</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap "></i>Multilevel Link <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#"><i class="fa fa-bicycle "></i>Second Level Link</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-flask "></i>Second Level Link</a>
-                        </li>
-                        <li>
-                            <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="#"><i class="fa fa-plus "></i>Third Level Link</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-comments-o "></i>Third Level Link</a>
-                                </li>
-
-                            </ul>
-
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="blank.html"><i class="fa fa-square-o "></i>Blank Page</a>
-                </li>
-
         </div>
     </nav>
