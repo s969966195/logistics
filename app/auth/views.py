@@ -92,3 +92,35 @@ def bedriver():
     db.session.add(user)
     db.session.commit()
     return redirect(url_for('main.manage'))
+
+
+reset_data = {}
+
+
+@auth.route('/reset', methods=['GET', 'POST'])
+def password_reset_request():
+    global reset_data
+    if request.method == 'POST':
+        user = User.query.filter_by(email=request.form.get('email')).first()
+        if user:
+            reset_token = user.generate_reset_token()
+            reset_data = user.get_reset_token(reset_token)
+            send_email(user.email, u'重置密码', 'auth/email/reset_password', user=user, token=reset_token, next=request.args.get('next'))
+            flash(u'已向您的邮箱发送重置密码邮件')
+            return redirect(url_for('auth.login'))
+    return render_template('auth/reset_password.html', temp=0)
+
+
+@auth.route('/reset/<token>', methods=['GET', 'POST'])
+def password_reset(token):
+    global reset_data
+    if not current_user.is_anonymous:
+        return redirect(url_for('main.manage'))
+    if request.method == 'POST':
+        user = User.query.filter_by(id=reset_data['reset']).first()
+        if user.reset_password(token, request.form.get('password')):
+            flash(u'您的密码已经重置')
+            return redirect(url_for('auth.login'))
+        else:
+            return redirect(url_for('main.manage'))
+    return render_template('auth/reset_password.html', temp=1)

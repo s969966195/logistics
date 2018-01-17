@@ -62,13 +62,13 @@ def showorder():
         query = Order.query.filter_by(owner_id=current_user.id)
     else:
         orderstatus = int(orderstatus)
-        if current_user.role_id == 2:
-            if orderstatus == 0:
-                query = Order.query.filter_by(status=orderstatus)
-            elif orderstatus == 1:
-                query = Order.query.filter_by(status=orderstatus, driver_id=current_user.id)
+        if orderstatus == 3:
+            query = Order.query.filter_by(driver_id=current_user.id)
         else:
-            query = Order.query.filter_by(owner_id=current_user.id, status=orderstatus)
+            if current_user.role_id == 2 and orderstatus == 0:
+                query = Order.query.filter_by(status=orderstatus)
+            else:
+                query = Order.query.filter_by(owner_id=current_user.id, status=orderstatus)
     page = request.args.get('page', 1, type=int)
     pagination = query.order_by(Order.createtime.desc()).paginate(page, per_page=current_app.config['FLASKY_ORDERS_PER_PAGE'], error_out=False)
     orders = pagination.items
@@ -104,6 +104,14 @@ def show_unfinished():
 def show_finished():
     resp = make_response(redirect(url_for('.showorder')))
     resp.set_cookie('orderstatus', '2', max_age=30*24*60*60)
+    return resp
+
+
+@main.route('/answer')
+@login_required
+def show_answer():
+    resp = make_response(redirect(url_for('.showorder')))
+    resp.set_cookie('orderstatus', '3', max_age=30*24*60*60)
     return resp
 
 

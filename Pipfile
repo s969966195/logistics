@@ -19,6 +19,7 @@ flask-migrate = "*"
 flask-bootstrap = "*"
 flask-login = "*"
 flask-wtf = "*"
+flask-admin = "*"
 
 
 [requires]

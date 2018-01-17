@@ -12,6 +12,9 @@
                         <li {% if orderstatus == 0 %}class="active"{% endif %}><a href="{{ url_for('.show_unanswered') }}">未接单</a></li>
                         <li {% if orderstatus == 1 %}class="active"{% endif %}><a href="{{ url_for('.show_unfinished') }}">未完成</a></li>
                         <li {% if orderstatus == 2 %}class="active"{% endif %}><a href="{{ url_for('.show_finished') }}">已完成</a></li>
+                        {% if current_user.role_id == 2 %}
+                        <li {% if orderstatus == 3 %}class="active"{% endif %}><a href="{{ url_for('.show_answer') }}">接单</a></li>
+                        {% endif %}
                     </ul>
                 </div>
                 {% include "order/_orders.html" %}

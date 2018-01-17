@@ -151,7 +151,7 @@ a.button.rotate2:hover, a.button.rotate2:focus,a.button.rotate2:active {
   transform: rotate(4deg);
 }
 a.button.rotate2 span{
-	background: url(../images/arrow.png) no-repeat 0px 0px;
+	background: url(../index/arrow.png) no-repeat 0px 0px;
 	width:20px;
 	height:10px;
 	display: inline-block;
@@ -167,7 +167,7 @@ a.button.rotate2:hover{
 }
  /*------start-slider-------*/
  #testimonials{
-	background:url(../images/slide.jpg) repeat-y;
+	background:url(../index/slide.jpg) repeat-y;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-o-background-size:cover;
@@ -205,7 +205,7 @@ article > div {
 	width:29px;
 	height:37px;
 	text-indent: -9999px;
-	background: url(../images/arrows.png) no-repeat;
+	background: url(../index/arrows.png) no-repeat;
 	top: 40%;
 	z-index: 2;
 	cursor: pointer;
@@ -304,7 +304,7 @@ ul.topic_grid{
 /*** .Nav Class ************************/
 .icon-minus-sign:after {
 	content: "";
-	background: url(../images/plus.png)no-repeat;
+	background: url(../index/plus.png)no-repeat;
 	width:16px;
 	height:16px;
 	position: absolute;
@@ -316,7 +316,7 @@ ul.topic_grid{
 }
 .icon-plus-sign:before {
 	content: "";
-	background: url(../images/plus.png)no-repeat;
+	background: url(../index/plus.png)no-repeat;
 	width:16px;
 	height:16px;
 	position: absolute;
@@ -417,7 +417,7 @@ ul.topic_grid{
 }
 .accordation_menu label:hover .icon-plus-sign:before {
 	content: "";
-	background: url(../images/minus.png)no-repeat;
+	background: url(../index/minus.png)no-repeat;
 	width:16px;
 	height:16px;
 	position: absolute;
@@ -487,7 +487,7 @@ li.date_desc p{
 }
 /*-----About-section------*/
 .header-section2{
-background: url(../images/bg.jpg)no-repeat 9px -274px;
+background: url(../index/bg.jpg)no-repeat 9px -274px;
 background-size: cover;
 -webkit-background-size: cover;
 -o-background-size: cover;
@@ -555,7 +555,7 @@ width: 100%;
 }
 
 .ourteam{
-	background:url(../images/team-bg.jpg)repeat-y;
+	background:url(../index/team-bg.jpg)repeat-y;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-o-background-size:cover;
@@ -595,7 +595,7 @@ margin-left: 2em;
 max-width: 87%;
 }
 a.offer-btn span {
-background: url(../images/arrow.png) no-repeat 0px 0px;
+background: url(../index/arrow.png) no-repeat 0px 0px;
 width:20px;
 height:15px;
 display: inline-block;
@@ -672,11 +672,11 @@ font-weight: 600;
 }
 .nbs-flexisel-nav-left {
 	left:-3em;
-	background: url(../images/arrows.png) no-repeat 0px 0px;
+	background: url(../index/arrows.png) no-repeat 0px 0px;
 }
 .nbs-flexisel-nav-right {
 	right: -4em;
-	background: url(../images/arrows.png) no-repeat -32px 0px;
+	background: url(../index/arrows.png) no-repeat -32px 0px;
 }
 /*--banner-sub-head--*/
 
@@ -1050,7 +1050,7 @@ border-bottom: 4px solid#fff;
 	margin: 10.4em auto 0 1em;
 	list-style: none;
 	color: #c71d1d;
-	background: url(../images/date.png) no-repeat 0px 0px;
+	background: url(../index/date.png) no-repeat 0px 0px;
 	display: inline-block;
 	font-family: 'Open Sans', sans-serif;
 }
@@ -1097,12 +1097,12 @@ margin: 7.8em auto 0 1em;
 	height:18px;
 	width:18px;
 	display: inline-block;
-	background: url(../images/user.png) no-repeat 0px 0px;
+	background: url(../index/user.png) no-repeat 0px 0px;
 	vertical-align: middle;
 	margin-right: 0.5em;
 }
 .blog-artical-info-head ul li span.tag{
-	background: url(../images/tag.png) no-repeat 0px 0px;
+	background: url(../index/tag.png) no-repeat 0px 0px;
 }
 .blog-artical-info-head ul li a,.blog-artical-info-head ul li{
 	color: #444;
@@ -1159,7 +1159,7 @@ margin: 7.8em auto 0 1em;
 	font-family: 'Open Sans', sans-serif;
 }
 .b-search input[type="submit"]{
-	background: url(../images/search-icon2.png) no-repeat 0px 2px;
+	background: url(../index/search-icon2.png) no-repeat 0px 2px;
 	border: none;
 	height: 26px;
 	width: 26px;
@@ -1563,7 +1563,7 @@ padding:1em 0;
 	width:35px;
 	height:35px;
 	display: inline-block;
-	background: url('../images/icons.png') no-repeat;
+	background: url('../index/icons.png') no-repeat;
 	vertical-align: middle;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
@@ -1667,7 +1667,7 @@ div.span4 {
 	width:70px;
 	height:70px;
 	display: inline-block;
-	background: url('../images/bottom-icons.png') no-repeat;
+	background: url('../index/bottom-icons.png') no-repeat;
 	vertical-align: middle;
 	-webkit-transition: all 0.3s ease;
 			-moz-transition: all 0.3s ease;
@@ -1752,7 +1752,7 @@ ul.soc_icons2 li i{
 	width:30px;
 	height:30px;
 	display: inline-block;
-	background: url('../images/footer-icons.png') no-repeat;
+	background: url('../index/footer-icons.png') no-repeat;
 	vertical-align: middle;
 	-webkit-transition: 0.8s;
 	-moz-transition: 0.8s;
@@ -1820,7 +1820,7 @@ ul.soc_icons2 li {
 	height:25px;
 	border: none;
 	text-indent: 100%;
-	background: url("../images/move-up.png") no-repeat 0px 0px;
+	background: url("../index/move-up.png") no-repeat 0px 0px;
 }
 #toTopHover {
 	width:38px;
@@ -1877,7 +1877,7 @@ ul.soc_icons2 li {
 }
 @media(max-width:1280px){
 	.header-section {
-	background: url(../images/bg.jpg)no-repeat 0px 0px;
+	background: url(../index/bg.jpg)no-repeat 0px 0px;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -1902,7 +1902,7 @@ ul.soc_icons2 li {
 }
 @media(max-width:1024px){
 	.header-section {
-	background: url(../images/bg.jpg)no-repeat 0px 0px;
+	background: url(../index/bg.jpg)no-repeat 0px 0px;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -1965,7 +1965,7 @@ ul.soc_icons2 li {
 	span.menu{
 	width: 35px;
 	height: 35px;
-	background: url(../images/menu-icon.png) no-repeat 0px 0px;
+	background: url(../index/menu-icon.png) no-repeat 0px 0px;
 	display: block;
 	position: absolute;
 	right: 88px;
@@ -2038,7 +2038,7 @@ ul.soc_icons2 li {
 	left: -6%;
 	}
 	.header-section2 {
-	background: url(../images/bg.jpg)no-repeat 2px -132px;
+	background: url(../index/bg.jpg)no-repeat 2px -132px;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -2091,7 +2091,7 @@ ul.soc_icons2 li {
 		margin: 1em 0 1em;
 	}
 	.header-section {
-	background: url(../images/bg.jpg)no-repeat 0px -28px;
+	background: url(../index/bg.jpg)no-repeat 0px -28px;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -2116,7 +2116,7 @@ ul.soc_icons2 li {
 	min-height: 213px;
 	}
 	#testimonials {
-	background: url(../images/slide.png) repeat-y;
+	background: url(../index/slide.png) repeat-y;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -2143,7 +2143,7 @@ ul.soc_icons2 li {
 	padding: 9% 0;
 	}
 	.ourteam {
-		background: url(../images/team-bg.jpg)repeat-y;
+		background: url(../index/team-bg.jpg)repeat-y;
 		background-size: cover;
 		-webkit-background-size: cover;
 		-o-background-size: cover;
@@ -2216,7 +2216,7 @@ ul.soc_icons2 li {
 	left: -6%;
 	}
 	.header-section2 {
-	background: url(../images/bg.jpg)no-repeat 2px -132px;
+	background: url(../index/bg.jpg)no-repeat 2px -132px;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -2280,7 +2280,7 @@ ul.soc_icons2 li {
 		font-size: 15em;
 	}
 	.header-section {
-	background: url(../images/bg.jpg)no-repeat 0px -28px;
+	background: url(../index/bg.jpg)no-repeat 0px -28px;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -2408,7 +2408,7 @@ ul.soc_icons2 li {
 	font-size: 0.9em;
 	}
 	.header-section {
-	background: url(../images/bg.jpg)no-repeat 0px -28px;
+	background: url(../index/bg.jpg)no-repeat 0px -28px;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -2476,7 +2476,7 @@ ul.soc_icons2 li {
 }
 @media (max-width:320px){
 		.header-section {
-		background: url(../images/bg.jpg)no-repeat 0px -28px;
+		background: url(../index/bg.jpg)no-repeat 0px -28px;
 		background-size: cover;
 		-webkit-background-size: cover;
 		-o-background-size: cover;
@@ -2526,7 +2526,7 @@ ul.soc_icons2 li {
 	}
 	.icon-minus-sign:after {
 		content: "";
-		background: url(../images/plus.png)no-repeat;
+		background: url(../index/plus.png)no-repeat;
 		width: 16px;
 		height: 16px;
 		position: absolute;
@@ -2570,7 +2570,7 @@ ul.soc_icons2 li {
 	width: 45%;
 	}
 	#testimonials {
-	background: url(../images/slide.png) repeat-y;
+	background: url(../index/slide.png) repeat-y;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -2589,7 +2589,7 @@ ul.soc_icons2 li {
 	left: 12px;
 	}
 	.header-section2 {
-		background: url(../images/bg.jpg)no-repeat 2px -35px;
+		background: url(../index/bg.jpg)no-repeat 2px -35px;
 		background-size: cover;
 		-webkit-background-size: cover;
 		-o-background-size: cover;

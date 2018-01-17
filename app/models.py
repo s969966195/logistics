@@ -1,10 +1,11 @@
 # coding=utf-8
-from . import db, login_manager
+from . import db, login_manager, admin
 from flask import current_app
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 import time
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+from flask_admin.contrib.sqla import ModelView
 
 
 class Role(db.Model):
@@ -104,3 +105,7 @@ class Order(db.Model):
             self.createtime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
             self.createtimestamp = int(time.time())
         self.status = 0
+
+
+admin.add_view(ModelView(User, db.session))
+admin.add_view(ModelView(Order, db.session))
