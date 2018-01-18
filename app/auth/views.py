@@ -59,7 +59,7 @@ def confirm(token):
 
 @auth.route('/unconfirmed')
 def unconfirmed():
-    return render_template('auth/unconfirmed.html')
+    return render_template('auth/unconfirmed.html', sidebar=0)
 
 
 @auth.route('/confirmed')
